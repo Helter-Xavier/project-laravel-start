@@ -4,6 +4,6 @@
 
 @section('content')
 
-    <h1>Página de Produtos</h1>
+    <h1>Página de Contatos</h1>
 
 @endsection
