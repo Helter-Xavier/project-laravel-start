@@ -18,4 +18,8 @@ class EventController extends Controller
     public function contact() {
         return view('contact.contact');
     }
+
+    public function product() {
+        return view('product');
+    }
 }
