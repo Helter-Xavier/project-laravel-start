@@ -24,7 +24,44 @@ class EventController extends Controller
         return view('contact.contact');
     }
 
-    public function product() {
-        return view('product');
+    public function store(Request $request) {
+
+        // estancia a classe do model
+        $event = new Event;
+
+        $event->title = $request->title;
+        $event->city = $request->city;
+        $event->private = $request->private;
+        $event->description = $request->description;
+
+        // Image Upload
+        if($request->hasFile('image') && $request->file('image')->isValid()){
+
+            $requestImage = $request->image;
+            
+            $extension = $requestImage->extension();
+
+            // Nome da imagem no servidor
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now") . "." . $extension);
+
+            // Salvar imagem
+            $requestImage->move(public_path('img/events'), $imageName);
+
+            $event->image = $imageName;
+
+        }
+        // Salva no banco de dados
+        $event->save();
+
+        // Redireciona o usuario para outra página
+        return redirect('/')->with('msg', 'Evento criado com sucesso!');
+    }
+
+    public function show($id){
+
+        $event = Event::findOrFail($id);
+
+        return view('events.show', ['event' => $event]);
+
     }
 }
