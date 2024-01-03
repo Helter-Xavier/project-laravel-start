@@ -147,6 +147,28 @@ header {
     font-size: 16px;
 }
 
+#info-container ion-icon {
+    font-size: 20px;
+    color: #C28008;
+    margin-right: 5px;
+}
+
+#info-container p{
+    display: flex;
+    align-items: center;
+}
+
+#items-list{
+    list-style: none;
+    padding-left: 0;
+}
+
+#items-list li {
+    display: flex;
+    align-items: center;
+
+}
+
 /* footer */
 footer {
     text-align: center;
