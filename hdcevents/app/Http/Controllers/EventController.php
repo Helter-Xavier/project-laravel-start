@@ -106,7 +106,7 @@ class EventController extends Controller
 
     public function update(Request $request) {
 
-        $event = Event::findOrFail($request-> id)->update($request->all());
+        Event::findOrFail($request-> id)->update($request->all());
 
         return redirect('/dashboard')->with('msg', 'Evento editado com sucesso!');
     }

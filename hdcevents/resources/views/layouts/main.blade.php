@@ -26,6 +26,11 @@
                     <h2>Logo</h2>
                 </a>
                 <ul class="navbar-nav">
+                    @auth
+                    <li class="nav-item">
+                        <a href="/dashboard" class="nav-link">Dashboard</a>
+                    </li>
+                    @endauth
                     <li class="nav-item">
                         <a href="/" class="nav-link">Eventos</a>
                     </li>
